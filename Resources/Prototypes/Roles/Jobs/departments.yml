@@ -220,6 +220,15 @@
   - Virologist # Gooby goob ba gooby goob ba
 
 - type: department
+  id: Military
+  name: department-Military
+  description: department-Military-description
+  color: "#C616DE"
+  weight: 20
+  roles:
+  - MilitaryOfficer
+
+- type: department
   id: Security
   name: department-Security
   description: department-Security-description
@@ -229,6 +238,7 @@
   - HeadOfSecurity
   - SecurityCadet
   - SecurityOfficer
+  - MilitaryOfficer
   - Detective
   - Warden
   - Brigmedic # Goob

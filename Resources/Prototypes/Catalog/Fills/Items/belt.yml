@@ -166,6 +166,17 @@
     - id: RadioHandheldSecurity
     - id: WeaponDisabler # Goobstation
 
+
+- type: entity
+  id: ClothingBeltMilitaryFilled
+  parent: ClothingBeltMilitary
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: BeltMilitaryEntityTable
+
 - type: entity
   id: ClothingBeltSecurityFilled
   parent: ClothingBeltSecurity
@@ -175,6 +186,16 @@
     containers:
       storagebase: !type:NestedSelector
         tableId: BeltSecurityEntityTable
+
+- type: entity
+  id: ClothingBeltMilitaryWebbingFilled
+  parent: ClothingBeltMilitaryWebbing
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: BeltMilitaryEntityTable
 
 - type: entity
   id: ClothingBeltSecurityWebbingFilled

@@ -640,6 +640,64 @@
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
 
+
+- type: entity
+  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSecurityContraband]
+  id: ClothingBeltMilitary
+  name: military belt
+  description: Can hold security gear like handcuffs and flashes.
+  components:
+  - type: Sprite
+    sprite: Clothing/Belt/security.rsi
+  - type: Clothing
+    sprite: Clothing/Belt/security.rsi
+  - type: ExplosionResistance # Goobstation
+    damageCoefficient: 0.5
+  - type: Storage
+    whitelist:
+      tags:
+        - CigPack
+        - Taser
+        - SecBeltEquip
+        - Radio
+        - Sidearm
+        - MagazinePistol
+        - MagazineMagnum
+        - CombatKnife
+        - Truncheon
+        - BolaEnergy # Goobstation
+        - EnergySpeedloader # Goobstation
+        - MilitaryPowerCell # Goobstation
+        - HandGrenade
+      components:
+        - Stunbaton
+        - FlashOnTrigger
+        - SmokeOnTrigger
+        - Flash
+        - Handcuff
+        - BallisticAmmoProvider
+        - CartridgeAmmo
+        - DoorRemote
+        - Whistle
+        - BalloonPopper
+        - ScatteringGrenade # goobstation
+  - type: ItemMapper
+    mapLayers:
+      flashbang:
+        whitelist:
+          components:
+          - FlashOnTrigger
+      stunbaton:
+        whitelist:
+          components:
+          - Stunbaton
+      tear_gas_grenade:
+        whitelist:
+          components:
+          - SmokeOnTrigger
+    sprite: Clothing/Belt/belt_overlay.rsi
+  - type: Appearance
+
 - type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSecurityContraband]
   id: ClothingBeltSecurity
@@ -828,6 +886,17 @@
     - Kangaroo
 
 - type: entity
+  parent: ClothingBeltMilitary
+  id: ClothingBeltMilitaryWebbing
+  name: military carrier
+  description: Unique and versatile chest rig, can hold security gear.
+  components:
+  - type: Sprite
+    sprite: Clothing/Belt/securitywebbing.rsi
+  - type: Clothing
+    sprite: Clothing/Belt/securitywebbing.rsi
+
+- type: entity
   parent: ClothingBeltSecurity
   id: ClothingBeltSecurityWebbing
   name: security carrier
@@ -860,20 +929,20 @@
   - type: Clothing
     sprite: Clothing/Belt/salvagewebbing.rsi
 
-- type: entity
-  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSyndicateContraband]
-  id: ClothingBeltMilitaryWebbing
-  name: chest rig
-  description: A set of tactical webbing worn by Syndicate boarding parties.
-  components:
-  - type: Sprite
-    sprite: Clothing/Belt/militarywebbing.rsi
-  - type: Clothing
-    sprite: Clothing/Belt/militarywebbing.rsi
-  - type: ExplosionResistance
-    damageCoefficient: 0.1
-  - type: StaticPrice
-    price: 500
+#- type: entity
+#  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSyndicateContraband]
+#  id: ClothingBeltMilitaryWebbing
+#  name: chest rig
+#  description: A set of tactical webbing worn by Syndicate boarding parties.
+#  components:
+#  - type: Sprite
+#    sprite: Clothing/Belt/militarywebbing.rsi
+#  - type: Clothing
+#    sprite: Clothing/Belt/militarywebbing.rsi
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.1
+#  - type: StaticPrice
+#    price: 500
 
 - type: entity
   parent: ClothingBeltMilitaryWebbing

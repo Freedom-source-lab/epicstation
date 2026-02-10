@@ -1,0 +1,668 @@
+- type: entity
+  parent: BaseGenerator
+  id: ZISKGeneratorRTG
+  name: High Efficiency RTG
+  description: A Highly Effective Radioisotope Thermoelectric Generator for long term power but it gives off some radiation in the process.
+  suffix: 85kW
+  components:
+  - type: PowerSupplier
+    supplyRate: 85000
+  - type: Sprite
+    sprite: Structures/Power/Generation/rtg.rsi
+    state: rtg
+  - type: PowerMonitoringDevice
+    sprite: Structures/Power/Generation/rtg.rsi
+    state: rtg
+  - type: RadiationSource
+    intensity: 4
+  - type: AmbientSound
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/buzzing.ogg
+  - type: GuideHelp
+    guides:
+    - RTG
+    - Power
+
+- type: entity
+  id: ClothingZiskBelt
+  parent: ClothingAbductorBelt
+  suffix: Filled
+  categories: [HideSpawnMenu]
+  components:
+  - type: StorageFill
+    contents:
+      - id: CrowbarAbductor
+      - id: WrenchAbductor
+      - id: ScrewdriverAbductor
+      - id: WirecutterAbductor
+      - id: WelderAbductor
+      - id: MultitoolAbductor
+  - type: Unremoveable
+
+- type: entity
+  parent: AdminPDA
+  id: ZiskPDA
+  name: futuristic PDA
+  description: A powerful quantum computer disguised as a regular pda for disguise.
+  categories: [HideSpawnMenu]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/pda.rsi
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-chrono
+  - type: Pda
+    id: ExecutiveIDCardChameleon
+    penSlot:
+      startingItem: PenFuture
+      whitelist:
+        tags:
+        - Write
+  - type: PdaBorderColor
+    borderColor: "#dee4e7"
+    accentVColor: "#59bcee"
+  - type: Icon
+    sprite: _Goobstation/Objects/Devices/pda.rsi
+    state: pda-chrono
+  - type: Unremoveable
+
+- type: entity
+  parent: BaseFlatpack
+  id: HighEfficiencyRTGFlatpack
+  name: high efficiency RTG flatpack
+  suffix: Admin
+  description: A flatpack used for constructing a High Efficiency RTG.
+  components:
+  - type: Flatpack
+    entity: ZISKGeneratorRTG
+  - type: Sprite
+    layers:
+    - state: tesla-generator
+
+- type: entity
+  parent: [ClothingEyesBase,ShowSecurityIcons, ShowMedicalIcons] # BaseLensSlot from imp
+  id: DroneOpticsHudOmni
+  name: Z.I.S.K. Omni Hud Module
+  categories: [HideSpawnMenu]
+  description: Filler
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    layers:
+    - state: ash_plating
+      map: [ "base" ]
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Inorganic
+  - type: ShowHungerIcons
+  - type: ShowThirstIcons
+  - type: ShowSyndicateIcons
+  - type: EyeProtection
+  - type: ThermalVision
+    isEquipment: true
+    lightRadius: 15
+    color: "#00aaff"
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Unremoveable
+
+- type: entity
+  parent: [ ClothingUniformBase ]
+  id: ClothingUniformJumpsuitTracker
+  name: Z.I.S.K. Monitor Uplink
+  categories: [HideSpawnMenu]
+  description: It's a jumpsuit Tracking Module made into a Circuit board to be installed into Cyborg Frames.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    layers:
+    - state: cpu_centcomm
+      map: [ "base" ]
+  - type: Unremoveable
+  - type: SuitSensor
+    mode: SensorCords
+    randomMode: false
+
+- type: entity
+  name: Wizard Healing Module
+  categories: [HideSpawnMenu]
+  parent: WeaponStaffBase
+  id: DroneStaffHealing
+  description: You don't foresee having to use this in your quest for carnage too often.
+  components:
+  - type: Sprite
+    layers:
+    - state: healing
+  - type: Item
+    size: Normal
+    heldPrefix: healing
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/Magic/staff_healing.ogg
+  - type: BasicEntityAmmoProvider
+    proto: ProjectileHealingBolt
+    capacity: 10
+    count: 10
+  - type: PacifismAllowedGun
+
+- type: entity
+  parent: ClothingBackpack
+  id: ZiskClothingBackpackStasisBattery
+  name: Z.I.S.K. Quantum Backpack
+  categories: [HideSpawnMenu]
+  description: Stores energy to freeze the flow of time itself, warping the space inside for massive capacity gains.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Back/Backpacks/stasis_back.rsi
+    state: icon
+  - type: Clothing
+    slots: BACK
+    sprite: _Goobstation/Clothing/Back/Backpacks/stasis_back.rsi
+  - type: BasicEntityAmmoProvider
+    proto: BulletStasis
+    capacity: 1
+    count: 1
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1
+    rechargeSound:
+      path: /Audio/_Goobstation/Weapons/ChronoLegionnaire/stasisgun_reload.ogg
+  - type: Item
+    size: Ginormous
+  - type: Unremoveable
+  - type: Storage
+    maxItemSize: Ginormous
+    grid:
+    - 0,0,24,14
+  - type: Tag
+    tags:
+    - StasisBattery
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: DroneBackpackDuffelHolding
+  name: Z.I.S.K. Internal Bluespace Storage
+  categories: [HideSpawnMenu]
+  description: This Drone has a localized bluespace portal built-in.
+ 
+
+- type: entity
+  id: DroneMjollnirSolo
+  parent: [ BaseItem ]
+  name: Z.I.S.K. Combat Hammer [SOLO Mode]
+  categories: [HideSpawnMenu]
+  description: A weapon worthy of a god, able to strike with the force of a lightning bolt. It crackles with barely contained energy.
+  components:
+  - type: Wieldable
+    useDelayOnWield: false
+  - type: ScaleVisuals
+    scale: 0.5, 0.5
+  - type: LandAtCursor
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/mjollnir.rsi
+    layers:
+    - state: icon
+  - type: UseDelay
+    delay: 3.5
+  - type: UseDelayOnMeleeHit
+  - type: MeleeThrowOnHit
+    stunTime: 3.3
+    activateOnThrown: true
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Structural: 150
+    soundHit:
+      path: /Audio/Effects/tesla_consume.ogg
+      params:
+        variation: 0.10
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 12
+        Shock: 22
+        Radiation: 16
+        Asphyxiation: 8
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 12
+        Shock: 12
+        Radiation: 12
+  - type: Item
+    size: Small
+
+- type: entity
+  id: DroneMjollnirParty
+  parent: [ BaseItem, BaseMagicalContraband ]
+  name: Z.I.S.K. Combat Hammer [Party Mode]
+  categories: [HideSpawnMenu]
+  description: A weapon worthy of a god, able to strike with the force of a lightning bolt. It crackles with barely contained energy.
+  components:
+  - type: Wieldable
+    useDelayOnWield: false
+  - type: ScaleVisuals
+    scale: 0.66, 0.66
+  - type: LandAtCursor
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/mjollnir.rsi
+    layers:
+    - state: icon
+  - type: UseDelay
+    delay: 5
+  - type: UseDelayOnMeleeHit
+  - type: MeleeThrowOnHit
+    stunTime: 1
+    activateOnThrown: true
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Structural: 150
+    soundHit:
+      path: /Audio/Effects/metal_break4
+      params:
+        variation: 0.25
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 12
+        Shock: 12
+        Radiation: 12
+        Asphyxiation: 16
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 8
+        Shock: 8
+        Radiation: 8
+  - type: Item
+    size: Small
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitChronolegioneerzisk
+  name: Z.I.S.K. Hardsuit
+  categories: [HideSpawnMenu]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/chronolegioneer.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/chronolegioneer.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.01
+    coolingCoefficient: 0.01
+  - type: ExplosionResistance
+    damageCoefficient: 0.05
+  - type: Armor
+    traumaDeductions: # prevents traumas at all (kinda)
+      Dismemberment: 1
+      OrganDamage: 1
+      BoneDamage: 1
+      VeinsDamage: 1
+      NerveDamage: 1
+    modifiers:
+      coefficients:
+        Blunt: 0.02
+        Slash: 0.02
+        Piercing: 0.02
+        Heat: 0.02
+        Cold: 0.02
+        Shock: 0.02
+        Caustic: 0.05
+        Radiation: 0
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: HeldSpeedModifier
+  - type: StasisProtection
+  - type: StasisBlinkProvider
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitChronolegioneer
+  - type: ModifyDelayedKnockdown
+    cancel: true
+  - type: StaminaResistance
+    damageCoefficient: 0.33
+  - type: Unremoveable
+
+- type: startingGear
+  id: BeanDRGear
+  equipment:
+    back: ZiskClothingBackpackStasisBattery
+    jumpsuit: ClothingUniformJumpsuitTracker
+    mask: ClothingMaskGasChronoUnremoveable
+    id: ZiskPDA
+    belt: ClothingZiskBelt
+    shoes: ClothingShoesBootsChronoUnremoveable
+    outerClothing: ClothingOuterHardsuitChronolegioneerzisk
+    eyes: DroneOpticsHudOmni
+    gloves: ClothingHandsGlovesChronoLegioneer
+    pocket1: BaseHandheldStationMapPowerCe
+  storage:
+    back:
+      - WeaponStasisGun
+      - StasisCage
+      - StasisCage
+      - StasisCage
+      - StasisCage
+      - StasisCage
+      - StasisCage
+      - MedkitCombatStasiziumFilled
+      - StasisBaton
+      - FreedomImplanter
+      - ScramImplanter
+      - MindShieldImplanter
+      - RCDChrono
+      - ChronoTeleporter
+      - HandheldGPSBasic # Mass Scanner Removed by Lavaland
+      - Flash
+      - TimelineDisruptorFlatpack
+      - WeaponAdvancedLaser
+      - AdvancedMineralScannerUnpowered
+      - DoorRemoteCustom
+      - AccessConfiguratorUniversal
+      - PinpointerUniversal
+      - PowerCellMicroreactorPrinted
+      - AccessBreakerUnlimited
+      - Emag
+      - DroneStaffHealing
+      - DroneMjollnirSolo
+      - DroneMjollnirParty
+      - MiningDrillDiamond
+      - WeaponPistolCHIMPUpgraded
+      - AnomalyLocatorUnpowered
+      - AnomalyLocatorWideUnpowered
+      - AnomalyScanner
+      - EncryptionKeyFuture
+      - CentcommMindShieldImplanter
+      - HighEfficiencyRTGFlatpack
+      - HighEfficiencyRTGFlatpack
+      - HighEfficiencyRTGFlatpack
+      - HighEfficiencyRTGFlatpack
+      - HighEfficiencyRTGFlatpack
+      - HighEfficiencyRTGFlatpack
+    belt:
+      - trayScanner
+      - GasAnalyzer
+
+
+- type: entity
+  id: MobIPCZisk
+  parent: PlayerSiliconHumanoidBase
+  name: Z.I.S.K
+  components:
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - RobotTalk
+    understands:
+    - TauCetiBasic
+    - RobotTalk
+  - type: HarpySinger
+#    ShutUpDamageThreshold: 5 # Punch does 5 damage #OmuStation, "gotta have my combat music"
+  - type: Instrument
+    allowPercussion: true
+    allowProgramChange: true
+    program: 52
+  - type: SwappableInstrument
+    instrumentList:
+      "Daw": { 0: 0 }
+  - type: ScaleVisuals
+    scale: 0.15, 0.15
+  - type: UserInterface
+    interfaces:
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+        requireInputValidation: false
+      enum.SolarControlConsoleUiKey.Key:
+        type: SolarControlConsoleBoundUserInterface
+      enum.CommunicationsConsoleUiKey.Key:
+        type: CommunicationsConsoleBoundUserInterface
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+      enum.CargoConsoleUiKey.Orders:
+        type: CargoOrderConsoleBoundUserInterface
+      enum.CrewMonitoringUIKey.Key:
+        type: CrewMonitoringBoundUserInterface
+      enum.GeneralStationRecordConsoleKey.Key:
+      # who the fuck named this bruh
+        type: GeneralStationRecordConsoleBoundUserInterface
+      enum.VoiceMaskUIKey.Key:
+        type: VoiceMaskBoundUserInterface
+      enum.HumanoidMarkingModifierKey.Key:
+        type: HumanoidMarkingModifierBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.StoreUiKey.Key: # Goobstation - changelings
+        type: StoreBoundUserInterface
+      enum.HereticLivingHeartKey.Key: # goob edit - heretics
+        type: LivingHeartMenuBoundUserInterface
+      enum.WizardTeleportUiKey.Key: # Goobstation - wizard
+        type: WizardTeleportBoundUserInterface
+        requireInputValidation: false
+  - type: IntrinsicUI
+    uis:
+      enum.SolarControlConsoleUiKey.Key:
+        toggleAction: ActionAGhostShowSolar
+      enum.CommunicationsConsoleUiKey.Key:
+        toggleAction: ActionAGhostShowCommunications
+      enum.RadarConsoleUiKey.Key:
+        toggleAction: ActionAGhostShowRadar
+      enum.CargoConsoleUiKey.Orders:
+        toggleAction: ActionAGhostShowCargo
+      enum.CrewMonitoringUIKey.Key:
+        toggleAction: ActionAGhostShowCrewMonitoring
+      enum.GeneralStationRecordConsoleKey.Key:
+        toggleAction: ActionAGhostShowStationRecords
+  - type: SolarControlConsole # look ma i AM the computer!
+  - type: CommunicationsConsole
+    title: Z.I.S.K.
+    color: "#21cc3a"
+    delay: 10
+    initialDelay: 0
+    global: true
+  - type: RadarConsole
+    followEntity: true
+  - type: CargoOrderConsole
+  - type: CrewMonitoringConsole
+  - type: GeneralStationRecordConsole
+    canDeleteEntries: true
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: CrewMonitor
+    transmitFrequencyId: ShuttleTimer
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Battery # Power cell slot replaced with high capacity battery
+    maxCharge: 1080
+    startingCharge: 1080
+  # Goobstation End - Energycrit
+  - type: EncryptionHolderRequiresLock
+  #- Goobstation - Energycrit
+  #- type: SiliconEmitSoundOnDrained
+  #  sound: "/Audio/_Goobstation/Voice/IPC/energy_low.ogg" # Goobstation - ipc audio
+  #  minInterval: 8
+  #  maxInterval: 12
+  #  popUp: "silicon-power-low"
+  - type: Lock
+    locked: true
+    lockOnClick: false
+    unlockOnClick: false
+    lockTime: 1
+    unlockTime: 5
+  - type: Loadout # imp special. this replaces the InnateTool component.
+    prototypes: [BeanDRGear]
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: hugging-success-generic
+    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+    messagePerceivedByOthers: hugging-success-generic-others
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen
+  - type: StandingState
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 3.75
+  - type: Damageable
+    damageContainer: SiliconRadiation
+    damageModifierSet: IPC
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+    stateAlertDict:
+      Alive: BorgHealth
+      Dead: BorgDead
+  - type: TypingIndicator
+    proto: robot
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 1000
+      behaviors:
+      - !type:GibBehavior { }
+  - type: SiliconDownOnDead
+  - type: Inventory
+    templateId: ipc
+  - type: GuideHelp
+    guides:
+    - IPC
+  - type: Silicon
+    entityType: enum.SiliconType.Player
+    batteryPowered: true
+    drainPerSecond: 1.5
+    chargeThresholdMid: 0.80
+    chargeThresholdLow: 0.35
+    chargeThresholdCritical: 0.10
+    speedModifierThresholds:
+      4: 1.2
+      3: 1.2
+      2: 1.2
+      1: 1
+      0: 0.50 # Goobstation - Energycrit
+  - type: BatteryDrinker
+    blacklist: # Goobstation - Energycrit
+      tags:
+      - IPCDrinkBlacklist
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 100
+  - type: EncryptionKeyHolder
+    keySlots: 4
+    examineWhileLocked: false
+    keysExtractionMethod: Cutting
+    keysUnlocked: false
+  - type: MovementIgnoreGravity
+  - type: ActiveRadio
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+  - type: DeadStartupButton
+    sound:
+      path: /Audio/_EinsteinEngines/Effects/Silicon/startup.ogg
+  # Erro de linter
+  #   - type: Wires
+  #     layoutId: IPC
+  - type: EmitBuzzWhileDamaged
+  - type: CanHostGuardian
+  - type: Repairable #Goob edit
+    fuelCost: 5
+    doAfterDelay: 3
+    selfRepairPenalty: 2.0
+    damage:
+      types:
+        Blunt: -15
+        Piercing: -15
+        Slash: -15
+  - type: DamagedSiliconAccent
+  - type: Uncloneable
+  - type: OwnInteractionVerbs
+    allowedVerbs: []
+  - type: Sprinter # Goob Change: slight nerf to speed because heavy robot, mass contest when
+    sprintSpeedMultiplier: 1.5
+  - type: Tag
+    tags:
+    - SiliconMob
+    - SiliconEmotes
+    - EmagImmune
+    - CanPilot
+    - FootstepSound
+    - BypassInteractionRangeChecks
+    - BypassDropChecks
+    - SilentStorageUser
+    - DoorBumpOpener
+    - AnomalyHost
+    - PreventAccessLogging
+    - IPCDrinkBlacklist
+  - type: Access
+    tags:
+    - Xenoborg
+    - Silicon
+    - SAN
+    - CentCom
+    - GenpopLeave
+    - Reporter
+    - HospitalityDirector
+    - SyndicateAgent
+    - Cyrogenics
+    - Librarian
+    - Armory
+    - Hydroponics
+    - Captain
+    - Logistics
+    - ChiefMedicalOfficer
+    - Janitor
+    - StationAI
+    - Clown
+    - Service
+    - NuclearOperative
+    - Borg
+    - Cargo
+    - CentralCommand
+    - Engineering
+    - Quartermaster
+    - Paramedic
+    - Chemistry
+    - Command
+    - Atmospherics
+    - Wizard
+    - Chapel
+    - Research
+    - ResearchDirector
+    - HeadOfSecurity
+    - Theatre
+    - Detective
+    - Maintenance
+    - Brig
+    - Courier
+    - Salvage
+    - Kitchen
+    - Bar
+    - Lawyer
+    - Mime
+    - ChiefEngineer
+    - BasicSilicon
+    - Security
+    - Musician
+    - EmergencyShuttleRepealAll
+    - GenpopEnter
+    - External
+    - Medical
+    - HeadOfPersonnel
+    - ArtificalIntelligence

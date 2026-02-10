@@ -200,6 +200,36 @@
 
 - type: entity
   parent: [ClothingMaskGas, BaseSecurityContraband]
+  id: ClothingMaskGasMilitary
+  name: military gas mask
+  description: A standard issue Security gas mask.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: Clothing/Mask/gassecurity.rsi
+  - type: Clothing
+    sprite: Clothing/Mask/gassecurity.rsi
+  - type: Armor
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: Tag # Goobstation - For survial boxes
+    tags:
+    - PetWearable
+    - WhitelistChameleon
+    - SecurityBreathMask
+  - type: Hailer # Goobstation - Hailer
+  - type: IngestionBlocker # Goobstation
+    blockSmokeIngestion: true
+
+- type: entity
+  parent: [ClothingMaskGas, BaseSecurityContraband]
   id: ClothingMaskGasSecurity
   name: security gas mask
   description: A standard issue Security gas mask.

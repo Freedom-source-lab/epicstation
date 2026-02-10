@@ -143,6 +143,15 @@
 
 - type: entity
   parent: [ClothingBackpackSatchel, BaseSecurityContraband]
+  id: ClothingBackpackSatchelMilitary
+  name: military
+  description: A robust satchel for security related needs.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Satchels/security.rsi
+
+- type: entity
+  parent: [ClothingBackpackSatchel, BaseSecurityContraband]
   id: ClothingBackpackSatchelSecurity
   name: security satchel
   description: A robust satchel for security related needs.

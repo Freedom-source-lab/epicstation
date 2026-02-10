@@ -31,6 +31,17 @@
     gloves: ClothingHandsGlovesCombat
     shoes: ClothingShoesBootsJack
 
+
+- type: startingGear
+  id: MilitaryOfficerGearDebug
+  parent: MilitaryOfficerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitary
+    gloves: ClothingHandsGlovesColorBlack
+    shoes: ClothingShoesBootsJack
+    outerClothing: ClothingOuterArmorBasic
+    head: ClothingHeadHelmetBasicAlt
+
 - type: startingGear
   id: SecurityOfficerGearDebug
   parent: SecurityOfficerGear

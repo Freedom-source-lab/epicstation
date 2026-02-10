@@ -32,6 +32,7 @@
 
 job-name-warden = Warden
 job-name-security = Security Officer
+job-name-military = Military Officer
 job-name-cadet = Security Cadet
 job-name-hos = Head of Security
 job-name-detective = Detective
@@ -153,6 +154,7 @@ JobScientist = Scientist
 JobSecurityCadet = Security Cadet
 JobSecurityClown = Security Clown
 JobSecurityOfficer = Security Officer
+JobMilitaryOfficer = Military Officer
 JobServiceWorker = Service Worker
 JobStationAi = Station AI
 JobStationEngineer = Station Engineer

@@ -165,6 +165,15 @@ loadout-group-scientist-id = Scientist ID
 
 loadout-group-research-assistant-jumpsuit = Research Assistant jumpsuit
 
+# Military
+loadout-group-military-head = Military head
+loadout-group-military-jumpsuit = Military Jumpsuit
+loadout-group-military-backpack = Military backpack
+loadout-group-military-belt = Military Belt
+loadout-group-military-outerclothing = Military outer clothing
+loadout-group-military-shoes = Military shoes
+loadout-group-military-id = Military ID
+
 # Security
 loadout-group-head-of-security-head = Head of Security head
 loadout-group-head-of-security-jumpsuit = Head of Security jumpsuit

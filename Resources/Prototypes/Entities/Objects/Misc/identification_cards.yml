@@ -293,6 +293,18 @@
 
 - type: entity
   parent: IDCardStandard
+  id: MilitaryIDCard
+  name: military ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idmilitaryofficer
+  - type: PresetIdCard
+    job: MilitaryOfficer
+
+- type: entity
+  parent: IDCardStandard
   id: SecurityIDCard
   name: security ID card
   components:

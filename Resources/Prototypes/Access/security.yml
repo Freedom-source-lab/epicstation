@@ -18,6 +18,10 @@
   name: id-card-access-level-head-of-security
 
 - type: accessLevel
+  id: Military
+  name: id-card-access-level-military
+
+- type: accessLevel
   id: Security
   name: id-card-access-level-security
 

@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCantou
+  name: Cantou Jumpsuit
+  description: Lets not play too rough. Neither you nor I can reach it just yet…
+  components:
+  - type: Sprite
+    sprite: _EpicstationUnsorted/Clothing/Jumpsuit/cantou.rsi
+  - type: Clothing
+    sprite: _EpicstationUnsorted/Clothing/Jumpsuit/cantou.rsi

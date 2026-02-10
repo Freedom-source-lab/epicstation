@@ -190,6 +190,15 @@
 
 - type: jobIcon
   parent: JobIcon
+  id: JobIconMilitaryOfficer
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: MilitaryOfficer
+  jobName: job-name-military
+
+
+- type: jobIcon
+  parent: JobIcon
   id: JobIconSecurityOfficer
   icon:
     sprite: /Textures/Interface/Misc/job_icons.rsi

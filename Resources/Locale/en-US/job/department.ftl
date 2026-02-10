@@ -18,6 +18,7 @@ department-CentralCommand = Central Command
 department-Engineering = Engineering
 department-Medical = Medical
 department-Security = Security
+department-Military = Military
 department-Science = Science
 department-Silicon = Silicon
 department-Specific = Station specific

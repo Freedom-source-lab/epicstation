@@ -624,6 +624,13 @@
   - WardenEnvirogloves
 
 - type: roleLoadout
+  id: JobMilitaryOfficer
+  groups:
+  - MilitaryHead
+  - MilitaryJumpsuit
+  - MilitaryPDA
+
+- type: roleLoadout
   id: JobSecurityOfficer
   groups:
   - SecurityHead

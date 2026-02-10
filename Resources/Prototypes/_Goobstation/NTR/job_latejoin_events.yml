@@ -10,6 +10,17 @@
       SecurityOfficer: 2
 
 - type: entity
+  id: MilitaryJobUnlock
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    minimumPlayers: 0
+    weight: 0
+  - type: LateJobUnlockRule
+    jobsToAdd:
+      MilitaryOfficer: 2
+
+- type: entity
   id: ScienceJobUnlock
   parent: BaseGameRule
   components:

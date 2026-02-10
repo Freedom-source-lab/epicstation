@@ -1301,6 +1301,66 @@
   - WardenCoatBlue #goob
 
 - type: loadoutGroup
+  id: MilitaryHead
+  name: loadout-group-military-head
+  minLimit: 0
+  loadouts:
+  - MilitaryHelmet
+  - MilitaryHelmetAlt # Goobstation
+  - MilitaryBeret
+  - MilitaryHat
+  - MilitaryTrooperHat
+
+- type: loadoutGroup
+  id: MilitaryJumpsuit
+  name: loadout-group-military-jumpsuit
+  loadouts:
+  - MilitaryJumpsuit
+  - MilitaryJumpskirt
+  - MilitaryJumpsuitGrey
+  - MilitaryJumpskirtGrey
+  - MilitaryTrooperUniform
+
+- type: loadoutGroup
+  id: MilitaryBackpack
+  name: loadout-group-military-backpack
+  loadouts:
+  - MilitaryBackpack
+  - MilitarySatchel
+  - MilitaryDuffel
+  - MilitaryMessenger # Frontier
+
+- type: loadoutGroup
+  id: MilitaryBelt
+  name: loadout-group-military-belt
+  loadouts:
+  - MilitaryBelt
+  - MilitaryWebbing
+  - MilitaryJudoBelt # Goobstation - Martial Arts
+
+- type: loadoutGroup
+  id: MilitaryOuterClothing
+  name: loadout-group-military-outerclothing
+  loadouts:
+  - MilitaryArmorVest
+  - MilitaryArmorVestSlim
+  - MilitaryOfficerWintercoat
+
+- type: loadoutGroup
+  id: MilitaryShoes
+  name: loadout-group-military-shoes
+  loadouts:
+  - MilitaryJackBoots
+  - MilitaryCombatBoots # Goobstation
+  - MilitaryWinterBoots
+
+- type: loadoutGroup
+  id: MilitaryPDA
+  name: loadout-group-military-id
+  loadouts:
+  - MilitaryPDA
+
+- type: loadoutGroup
   id: SecurityHead
   name: loadout-group-security-head
   minLimit: 0

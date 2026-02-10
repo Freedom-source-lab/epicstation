@@ -138,6 +138,21 @@
 
 - type: entity
   categories: [ ]
+  parent: MobHumanMilitaryBase
+  id: MobHumanMilitaryOfficerBasicArmorHelmet
+  name: Military Officer Basic Armor
+  components:
+  - type: Loadout
+    prototypes: [ MilitaryOfficerGearDebug ]
+    roleLoadout: [ RoleSurvivalMilitary ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
+
+- type: entity
+  categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanSecurityOfficerBasicArmorHelmet
   name: Security Officer Basic Armor

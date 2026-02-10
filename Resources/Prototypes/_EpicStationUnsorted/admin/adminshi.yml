@@ -1,0 +1,142 @@
+#- type: entity
+#  parent: ClothingBackpackDuffelSyndicateBundle
+#  id: ClothingBackpackDuffelSyndicateFilledShotgun
+#  name: Bulldog bundle
+#  description: "Lean and mean: Contains the popular Bulldog Shotgun, a 12g slug drum, and four 12g buckshot drums." #, and a pair of Thermal Imaging Goggles.
+#  components:
+#  - type: StorageFill
+#    contents:
+#      - id: WeaponShotgunBulldog
+#      - id: MagazineShotgun
+#        amount: 3
+#      - id: MagazineShotgunSlug
+#     - id: ThermalImagingGoggles
+
+
+- type: entity
+  parent: ClothingHandsBase
+  id: CantouGloves
+  name: Cantou Gloves
+  description: Insulated, Traceless, Stunning, Damaging
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+    equippedPrefix: gauntlet
+  - type: Fiber
+    fiberMaterial: fibers-classified
+    fiberColor: fibers-pitch-black
+  - type: Item
+    sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+    heldPrefix: gauntlet
+  - type: ClothingGrantComponent
+    component:
+    - type: SurgeryIgnoreClothing
+    - type: Prying
+      pryPowered: true
+      force: true
+      speedModifier: 8
+  - type: MeleeWeapon
+    attackRate: 2.0
+    damage:
+      types:
+        Blunt: 80
+        Structural: 120
+    mustBeEquippedToUse: true
+    soundHit:
+      path: /Audio/_Goobstation/Weapons/Effects/metalcrush.ogg
+    canWideSwing: false
+  - type: StaminaDamageOnHit
+    damage: 80
+    overtime: 80
+  - type: ItemSwitch
+    showLabel: true
+    state: gauntlet
+    states:
+      gauntlet: !type:ItemSwitchState
+        verb: gauntlet
+        sprite:
+          sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+          state: icon
+        components:
+          - type: MeleeWeapon
+            attackRate: 1.2
+            damage:
+              types:
+                Blunt: 32
+                Structural: 80
+            mustBeEquippedToUse: true
+            soundHit:
+              path: /Audio/_Goobstation/Weapons/Effects/metalcrush.ogg
+            canWideSwing: false
+          - type: StaminaDamageOnHit
+            damage: 45
+            overtime: 80
+        soundStateActivate:
+          collection: sparks
+          params:
+            variation: 0.125
+            volume: -5
+  - type: Thieving
+    stripTimeReduction: 2
+    stealthy: true
+  - type: Insulated
+  - type: ChameleonClothing
+    slot: [gloves]
+    default: ClothingHandsGlovesColorBlack
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  #- type: UserInterface
+  #  interfaces:
+  #    enum.ChameleonUiKey.Key:
+  #      type: ChameleonBoundUserInterface
+  #  default: ClothingHandsGlovesColorBlack
+  - type: FingerprintMask
+
+
+- type: entity
+  parent: ClothingBackpackSatchelHolding
+  id: CantouEquipmentSatchel
+  name: Cantou Equipment Satchel
+  suffix: Equipment
+  description: For Dr House's eyes only.
+  components:
+  - type: StorageFill
+    contents:
+      - id: CantouGloves
+  - type: ExplosionResistance
+    damageCoefficient: 0
+  - type: HideContrabandContent # Goobstation Contraband detector
+  - type: Storage #Goob, nerf to bag of holding storage size
+    maxItemSize: Huge
+    grid:
+    - 0,0,20,10
+
+- type: entity
+  parent: ClothingBackpackSatchelHolding
+  id: CantouSatchel
+  name: Cantou Satchel
+  suffix: Filled
+  description: For Dr House's eyes only.
+  components:
+  - type: StorageFill
+    contents:
+      - id: RCDExperimental
+      - id: SonicScrewdriver
+      - id: MedkitCombatStasiziumFilled
+      - id: OmnimedToolDebug
+      - id: DefibrillatorSyndicate
+      - id: AllTraitorCodesPaper
+      - id: DoorRemoteAll
+      - id: AdminHypo
+      - id: WeaponHeadOfSecuritySniper
+  - type: ExplosionResistance
+    damageCoefficient: 0
+  - type: HideContrabandContent # Goobstation Contraband detector
+  - type: Storage #Goob, nerf to bag of holding storage size
+    maxItemSize: Huge
+    grid:
+    - 0,0,20,10

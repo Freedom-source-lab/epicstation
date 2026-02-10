@@ -116,6 +116,16 @@
 
 - type: entity
   parent: [ClothingBackpackDuffel, BaseSecurityContraband]
+  id: ClothingBackpackDuffelMilitary
+  name: military duffel bag
+  description: A large duffel bag for holding extra security related goods.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Duffels/security.rsi
+
+
+- type: entity
+  parent: [ClothingBackpackDuffel, BaseSecurityContraband]
   id: ClothingBackpackDuffelSecurity
   name: security duffel bag
   description: A large duffel bag for holding extra security related goods.

@@ -514,6 +514,31 @@
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseSecurityContraband]
+  id: ClothingUniformJumpskirtMilitary
+  name: military jumpskirt
+  description: A jumpskirt made of strong material, providing robust protection.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpskirt/security.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpskirt/security.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#C12D30"
+        sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+      - state: overlay-inhand-left
+        sprite: Clothing/Uniforms/Jumpsuit/security.rsi
+      right:
+      - state: inhand-right
+        color: "#C12D30"
+        sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+      - state: overlay-inhand-right
+        sprite: Clothing/Uniforms/Jumpsuit/security.rsi
+
+- type: entity
+  parent: [ClothingUniformSkirtBase, BaseSecurityContraband]
   id: ClothingUniformJumpskirtSec
   name: security jumpskirt
   description: A jumpskirt made of strong material, providing robust protection.
@@ -822,6 +847,17 @@
     sprite: Clothing/Uniforms/Jumpskirt/senior_officer.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpskirt/senior_officer.rsi
+
+- type: entity
+  parent: [ClothingUniformSkirtBase, BaseSecurityContraband]
+  id: ClothingUniformJumpskirtMilitaryGrey
+  name: grey military jumpskirt
+  description: A tactical relic of years past before Nanotrasen decided it was cheaper to dye the suits red instead of washing out the blood.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpskirt/security_grey.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpskirt/security_grey.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseSecurityContraband]

@@ -73,6 +73,7 @@ job-description-reporter = Entertain & inform the crew with your vibrant journal
 job-description-salvagespec = Use the salvage magnet to draw in detatched scraps & asteroids to loot and enrich the station, build a salvage ship and then travel to new planets, while fighting off any space fauna along the way.
 job-description-scientist = Research alien artifacts, unlock new technologies, build newer and better machines around the station, and make everything run more efficiently.
 job-description-security = Catch criminals and enemies of the station, enforce the law, and ensure that the station does not fall into disarray.
+job-description-military = Fight terrorists, civil wars, forces of other worlds or whatever innocent fuedal planet CentComm point you at.
 job-description-serviceworker = Learn the basics of bartending, cooking, and growing plants.
 job-description-station-ai = Follow your laws, serve the crew.
 job-description-visitor = Enjoy your visit to the station.

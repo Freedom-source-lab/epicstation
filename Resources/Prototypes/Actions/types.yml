@@ -132,6 +132,17 @@
     iconOn: { sprite: Objects/Tools/flashlight.rsi, state: flashlight-on }
 
 - type: entity
+  parent: BaseToggleAction
+  id: ActionToggleLightPersonalityCore
+  name: Toggle Light
+  description: This WILL kill you, do NOT use it!
+  components:
+  - type: Action
+    useDelay: 1
+    icon: { sprite: Objects/Tools/flashlight.rsi, state: flashlight }
+    iconOn: { sprite: Objects/Tools/flashlight.rsi, state: flashlight-on }
+
+- type: entity
   parent: BaseAction
   id: ActionOpenStorageImplant
   name: Toggle Storage Implant

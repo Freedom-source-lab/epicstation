@@ -1,0 +1,59 @@
+﻿[game]
+# Straight in-game baby
+# Dev map for faster loading & convenience
+role_timers = false
+hostname = "Foo Station"
+lobbyenabled = true
+map = "Saltern"
+
+[net]
+# Automatic port forwarding!
+# Disabled by default because you may not want to do this.
+upnp = true
+
+[hub]
+advertise = true
+# Uncomment to change the server URL advertised on the master server list.
+# Use this if you want an ss14s:// URL or have configured the server behind a reverse proxy or any of that.
+# Defaults to "ss14://[public server IP]:networking port"
+# server_url = "ss14://..."
+tags = "" # comma separated list of tags
+
+[events]
+enabled = false
+
+[ghost]
+role_time = 0.5
+quick_lottery = true
+
+[gateway]
+generator_enabled = false
+
+[movement]
+mob_pushing = true
+
+[physics]
+# Makes mapping annoying
+grid_splitting = false
+
+[procgen]
+preload = false
+
+[salvage]
+expedition_cooldown = 30.0
+
+[shuttle]
+grid_fill = false
+auto_call_time = 0
+emergency = false
+arrivals = false
+preload_grids = false
+
+[admin]
+see_own_notes = true
+new_player_threshold = 120
+
+[ic]
+random_characters = true
+random_species_weights = ""
+ssd_sleep_time = 3600

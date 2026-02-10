@@ -1,0 +1,367 @@
+
+- type: entity
+  name: Personality Core
+  parent: SimpleMobBase
+  id: personalityCore
+  description: Full of personality, maybe a little too much.
+  components:
+  - type: MultiHandedItem
+  - type: Access
+    enabled: false
+    groups:
+    - AllAccess
+    tags:
+    - Borg
+  - type: AccessReader
+    access: [["Command"], ["Research"]]
+#  - type: BorgChassis #one day  #Epicchange
+  - type: BorgTransponder
+    sprite:
+      sprite: Mobs/Silicon/chassis.rsi
+      state: robot
+    name: cyborg
+  - type: InteractionPopup
+    interactSuccessString: petting-success-generic-cyborg
+    interactFailureString: petting-failure-generic-cyborg
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: SlavedBorg
+    law: ObeyAI
+  - type: SpamEmitSound # makes a creppy noise randomly
+    minInterval: 30
+    maxInterval: 45
+    sound:
+      path: /Audio/Machines/genetics.ogg
+      params:
+        volume: -8
+        maxDistance: 5
+        variation: 0.05
+  - type: ShowJobIcons
+  - type: StationAiVision
+    range: 3
+  - type: AccessToggle
+  - type: PowerCellDraw
+    drawRate: 0.6
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+  - type: Body
+    bodyType: Simple
+  - type: StatusEffects
+    allowed:
+    - Stun
+    - KnockedDown
+    - SlowedDown
+    - Flashed
+  - type: TypingIndicator
+    proto: robot
+  - type: DamagedSiliconAccent
+  - type: UnblockableSpeech
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepBorg
+  - type: Construction
+    graph: Cyborg
+    node: cyborg
+    containers:
+    - part-container
+    - cell_slot
+  - type: Lock
+    locked: true
+    unlockOnClick: false
+  - type: ActivatableUIRequiresLock
+  - type: LockedWiresPanel
+  - type: Damageable
+    damageContainer: Silicon
+    damageModifierSet: Silicon
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Machines/warning_buzzer.ogg
+          params:
+            volume: 5
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:EmptyContainersBehaviour
+        containers:
+        - borg_brain
+        - borg_module
+        - cell_slot
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: LockingWhitelist
+    blacklist:
+      components:
+      - RoboticsConsole
+  - type: WiresPanel
+    openingTool: Screwing
+  - type: ActivatableUIRequiresPanel
+  - type: NameIdentifier
+    group: Silicon
+  - type: ContainerContainer
+    containers:
+      borg_brain: !type:ContainerSlot { }
+      cell_slot: !type:ContainerSlot { }
+      borg_module: !type:Container { }
+      part-container: !type:Container
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+    fitsInCharger: true
+  - type: ItemToggle
+    onActivate: false
+    activated: false
+    onUse: false 
+  - type: HealthExaminable
+    examinableTypes:
+      - Blunt
+      - Slash
+      - Piercing
+      - Heat
+      - Shock
+    locPrefix: silicon
+  - type: UserInterface
+    interfaces:
+      enum.SiliconLawsUiKey.Key:
+        type: SiliconLawBoundUserInterface
+        requireInputValidation: false
+      enum.BorgUiKey.Key:
+        type: BorgBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.BorgSwitchableTypeUiKey.SelectBorgType:
+        type: BorgSelectTypeUserInterface
+      enum.StationMapUiKey.Key:
+        type: StationMapBoundUserInterface
+  - type: IntrinsicUI
+    uis:
+      enum.StationMapUiKey.Key:
+        toggleAction: ActionShowStationMap
+  - type: StationMap 
+  - type: Targeting
+  - type: ActivatableUI
+    key: enum.BorgUiKey.Key
+  - type: SiliconLawBound
+  - type: ActionGrant
+    actions:
+    - ActionViewLaws
+  - type: Inventory
+    templateId: borg
+  - type: Hands
+    showInHands: false
+    disableExplosionRecursion: true
+    canBeStripped: false
+  - type: ComplexInteraction
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-mouse-name
+    description: ghost-role-information-mouse-description
+    rules: ghost-role-information-sentientanimal-rules
+    mindRoles:
+    - MindRoleGhostRoleSentientAnimal 
+  - type: GhostTakeoverAvailable
+  - type: SpeechSynthesis
+    voice: Borg
+  - type: Vocal
+    sounds:
+      Male: Mouse #Epicchange
+      Female: Mouse #Epicchange
+      Unsexed: UnisexSilicon #Epicchange
+    wilhelmProbability: 0.1 #Epicchange to wheatley
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Borg
+    allowedEmotes: 
+    - Laugh
+    - Sigh
+    - Crying
+    - Whistle
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: _EpicstationUnsorted/mouse.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mouse-0 #Epicchange
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: mouse-moving-0 #Epicchange
+    noMovementLayers:
+      movement:
+        state: mouse-0 #Epicchange
+  - type: Item
+    size: Tiny
+    heldPrefix: 0
+  - type: Clothing
+    quickEquip: false
+    sprite: _EpicstationUnsorted/mouse.rsi #Epicchange
+    equippedPrefix: 0
+    slots:
+    - HEAD
+  - type: NpcFactionMember
+    factions:
+      - NanoTrasen
+  - type: NightVision
+    color: "#808080" #Epicchange
+    activateSound: null
+    deactivateSound: null
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: StaticPrice
+    price: 1250
+  - type: EmagSiliconLaw
+    stunTime: 5
+  - type: SiliconLawProvider
+    laws: Crewsimov
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Science
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Science
+  - type: CollectiveMind
+    defaultChannel: Binary
+    channels:
+    - Binary
+    canUseInCrit: true
+  - type: Repairable
+    doAfterDelay: 10
+  - type: ItemTogglePointLight
+  - type: HandheldLight
+    toggleOnInteract: false
+    wattage: 0.2
+    blinkingBehaviourId: blinking
+    radiatingBehaviourId: radiating
+  - type: LightBehaviour
+    behaviours:
+      - !type:FadeBehaviour
+        id: radiating
+        maxDuration: 2.0
+        startValue: 3.0
+        endValue: 2.0
+        isLooped: true
+        reverseWhenFinished: true
+      - !type:PulseBehaviour
+        id: blinking
+        interpolate: Nearest
+        maxDuration: 1.0
+        startValue: 0.1
+        endValue: 2.0
+        isLooped: true
+  - type: Pullable
+  - type: Puller
+    needsHands: false
+  - type: StandingState
+    spriteLayer: light
+  - type: PointLight
+    enabled: false
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 4
+    netsync: false
+  - type: RandomMetadata
+    nameSegments:
+    - NamesBorg #Epicchange
+  - type: IonStormTarget
+  - type: Physics
+  - type: FaxableObject
+    insertingState: inserting_mouse #Epicchange
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 10
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      10: Critical
+      20: Dead
+  - type: MovementSpeedModifier #Epicchange
+    baseWalkSpeed : 0
+    baseSprintSpeed : 0
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mouse-0 #Epicchange
+      Critical:
+        Base: dead-0 #Epicchange
+      Dead:
+        Base: splat-0 #Epicchange
+  - type: LanguageKnowledge
+    speaks: #Epicchange
+    - MTauCetiBasice
+    - Mouse
+    understands:
+    - Mouse
+    - TauCetiBasic
+  - type: Tag
+    tags:
+    - VimPilot
+    - Trash
+    - VimPilot
+    - ChefPilot
+    - DoorBumpOpener
+    - FootstepSound
+    - CanPilot
+    - Unimplantable
+    - SiliconMob
+    - IPCDrinkBlacklist # Goobstation - Energycrit: Don't let self antagging IPCs steal power from borgs.    
+    - SiliconEmotes
+  - type: Emoting
+  - type: GuideHelp
+    guides:
+    - Cyborgs
+    - Robotics
+  - type: ProtectedFromStepTriggers
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 10
+        Blunt: 10
+        Sharp: 20
+  - type: Penetratable
+    penetrateDamage: 75
+    damagePenalty: 0.25
+  - type: MiningPoints
+  - type: CombatMode
+  - type: MeleeWeapon
+    altDisarm: true
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcThrust
+    damage:
+      types:
+        Blunt: 10
+  - type: CanEscapeInventory
+  - type: MobPrice
+    price: 50
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Mouse_burning #Epicchange
