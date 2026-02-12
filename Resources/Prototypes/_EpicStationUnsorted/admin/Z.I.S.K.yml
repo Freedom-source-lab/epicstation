@@ -43,8 +43,8 @@
 - type: entity
   parent: AdminPDA
   id: ZiskPDA
-  name: futuristic PDA
-  description: A powerful quantum computer disguised as a regular pda for disguise.
+  name: The Future Barony PDA
+  description: A powerful and somewhat archaic magic tablet disguised as a regular pda.
   categories: [HideSpawnMenu]
   components:
   - type: Sprite
@@ -62,8 +62,8 @@
         tags:
         - Write
   - type: PdaBorderColor
-    borderColor: "#dee4e7"
-    accentVColor: "#59bcee"
+    borderColor: "#000000"
+    accentVColor: "#000000"
   - type: Icon
     sprite: _Goobstation/Objects/Devices/pda.rsi
     state: pda-chrono
@@ -83,9 +83,9 @@
     - state: tesla-generator
 
 - type: entity
-  parent: [ClothingEyesBase,ShowSecurityIcons, ShowMedicalIcons] # BaseLensSlot from imp
+  parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons] # BaseLensSlot from imp
   id: DroneOpticsHudOmni
-  name: Z.I.S.K. Omni Hud Module
+  name: Omni Eye
   categories: [HideSpawnMenu]
   description: Filler
   components:
@@ -113,9 +113,8 @@
 - type: entity
   parent: [ ClothingUniformBase ]
   id: ClothingUniformJumpsuitTracker
-  name: Z.I.S.K. Monitor Uplink
+  name: The Future Barony Monitor
   categories: [HideSpawnMenu]
-  description: It's a jumpsuit Tracking Module made into a Circuit board to be installed into Cyborg Frames.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -132,7 +131,7 @@
   categories: [HideSpawnMenu]
   parent: WeaponStaffBase
   id: DroneStaffHealing
-  description: You don't foresee having to use this in your quest for carnage too often.
+  description: You don't foresee having to use this too often.
   components:
   - type: Sprite
     layers:
@@ -152,16 +151,16 @@
 - type: entity
   parent: ClothingBackpack
   id: ZiskClothingBackpackStasisBattery
-  name: Z.I.S.K. Quantum Backpack
+  name: The Future Barony Backpack
   categories: [HideSpawnMenu]
   description: Stores energy to freeze the flow of time itself, warping the space inside for massive capacity gains.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Back/Backpacks/stasis_back.rsi
+    sprite: _EpicstationUnsorted\Clothing\Back\Backpacks\tfb_back.rsi
     state: icon
   - type: Clothing
     slots: BACK
-    sprite: _Goobstation/Clothing/Back/Backpacks/stasis_back.rsi
+    sprite: _EpicstationUnsorted\Clothing\Back\Backpacks\tfb_back.rsi
   - type: BasicEntityAmmoProvider
     proto: BulletStasis
     capacity: 1
@@ -185,15 +184,15 @@
 - type: entity
   parent: ClothingBackpackDuffel
   id: DroneBackpackDuffelHolding
-  name: Z.I.S.K. Internal Bluespace Storage
+  name: The Future Barony Storage
   categories: [HideSpawnMenu]
-  description: This Drone has a localized bluespace portal built-in.
- 
+  description: Barony has access to use tools beyond this realm to store tools.
+
 
 - type: entity
   id: DroneMjollnirSolo
   parent: [ BaseItem ]
-  name: Z.I.S.K. Combat Hammer [SOLO Mode]
+  name: The Future Barony Combat Hammer [SOLO Mode]
   categories: [HideSpawnMenu]
   description: A weapon worthy of a god, able to strike with the force of a lightning bolt. It crackles with barely contained energy.
   components:
@@ -207,7 +206,7 @@
     layers:
     - state: icon
   - type: UseDelay
-    delay: 3.5
+    delay: 0.5
   - type: UseDelayOnMeleeHit
   - type: MeleeThrowOnHit
     stunTime: 3.3
@@ -240,7 +239,7 @@
 - type: entity
   id: DroneMjollnirParty
   parent: [ BaseItem, BaseMagicalContraband ]
-  name: Z.I.S.K. Combat Hammer [Party Mode]
+  name: The Future Barony Combat Hammer [Party Mode]
   categories: [HideSpawnMenu]
   description: A weapon worthy of a god, able to strike with the force of a lightning bolt. It crackles with barely contained energy.
   components:
@@ -254,7 +253,7 @@
     layers:
     - state: icon
   - type: UseDelay
-    delay: 5
+    delay: 0.5
   - type: UseDelayOnMeleeHit
   - type: MeleeThrowOnHit
     stunTime: 1
@@ -265,7 +264,7 @@
       types:
         Structural: 150
     soundHit:
-      path: /Audio/Effects/metal_break4
+      path: /Audio/Effects/tesla_consume.ogg
       params:
         variation: 0.25
   - type: IncreaseDamageOnWield
@@ -285,15 +284,52 @@
     size: Small
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
-  id: ClothingOuterHardsuitChronolegioneerzisk
-  name: Z.I.S.K. Hardsuit
+  name: Barony Constructor
+  parent: RCD
+  id: RCDBaronyConstructor
+  description: A tool used by The Barony to build whatever they like
+  components:
+  - type: LimitedCharges
+    maxCharges: 500
+  - type: UseDelay
+    delay: 0.1
+  - type: AutoRecharge
+    rechargeDuration: 2
+  - type: Sprite
+    sprite: _EpicstationUnsorted\Objects\Tools\rcd_tfb.rsi
+    state: icon
+  - type: Item
+    sprite: _EpicstationUnsorted\Objects\Tools\rcd_tfb.rsi
+  - type: RCD
+
+- type: entity
+  parent: ClothingMaskGasERT
+  id: ClothingMaskZISK
+  name: futuristic gasmask
+  description: Using arcane magic and some unknown material this mask can filter out all unwanted particals.
   categories: [HideSpawnMenu]
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/chronolegioneer.rsi
+    sprite: _EpicstationUnsorted\Clothing\Mask\tfbmask.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/chronolegioneer.rsi
+    sprite: _EpicstationUnsorted\Clothing\Mask\tfbmask.rsi
+  - type: Unremoveable
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HidesHair
+    - HidesNose
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitChronolegioneerzisk
+  name: Barony Hardsuit
+  categories: [HideSpawnMenu]
+  components:
+  - type: Sprite
+    sprite: _EpicstationUnsorted\Clothing\OuterClothing\Hardsuits\tfb.rsi
+  - type: Clothing
+    sprite: _EpicstationUnsorted\Clothing\OuterClothing\Hardsuits\tfb.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -311,41 +347,114 @@
       NerveDamage: 1
     modifiers:
       coefficients:
-        Blunt: 0.02
-        Slash: 0.02
-        Piercing: 0.02
-        Heat: 0.02
-        Cold: 0.02
-        Shock: 0.02
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.1
+        Heat: 0.1
+        Cold: 0.1
+        Shock: 0.1
         Caustic: 0.05
         Radiation: 0
   - type: ClothingSpeedModifier
-    walkModifier: 0.85
-    sprintModifier: 0.85
+    walkModifier: 1.25
+    sprintModifier: 1.25
   - type: HeldSpeedModifier
   - type: StasisProtection
   - type: StasisBlinkProvider
+  - type: PointLight
+    color: "#0028ff"
+    radius: 4
+    energy: 5
+    castShadows: true
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
-      head: ClothingHeadHelmetHardsuitChronolegioneer
+      head: ClothingHeadHelmetHardsuittfb
   - type: ModifyDelayedKnockdown
     cancel: true
   - type: StaminaResistance
-    damageCoefficient: 0.33
+    damageCoefficient: 0
   - type: Unremoveable
+
+- type: entity
+  id: ChronoPortal
+  name: Barony portal
+  description: Looks futuristic.
+  parent: [ BasePortal, BaseShadow ]
+  components:
+  - type: Portal
+    arrivalSound: /Audio/Effects/tesla_consume.ogg
+    departureSound: /Audio/Effects/tesla_consume.ogg
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Effects/portal.rsi
+    state: portal-chrono
+    color: "#3A2792FF"
+  - type: PointLight
+    color: "#3A2792FF"
+    radius: 5
+    energy: 2
+    netsync: false
+  - type: AmbientSound
+    range: 6
+    volume: -3
+    sound:
+      path: /Audio/Ambience/ambitech2.ogg
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuittfb
+  name: Barony Helmet
+  description: The helmet of "The Future Barony"
+  categories: [HideSpawnMenu]
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _EpicstationUnsorted\Clothing\Head\Hardsuits\tfb_Helm.rsi
+  - type: Clothing
+    sprite: _EpicstationUnsorted\Clothing\Head\Hardsuits\tfb_Helm.rsi
+  - type: PointLight
+    color: "#6BA9E6"
+    rotation: 30
+    energy: 10
+    radius: 5
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: SpeechSoundsReplacer
+    speechSounds: Chrono
+  - type: Armor
+    traumaDeductions: # prevents traumas at all (kinda)
+      Dismemberment: 1
+      OrganDamage: 1
+      BoneDamage: 1
+      VeinsDamage: 1
+      NerveDamage: 1
+    modifiers:
+      coefficients:
+        Blunt: 0.01
+        Slash: 0.01
+        Piercing: 0.01
+        Heat: 0.01
+        Cold: 0.01
+        Shock: 0.01
+        Caustic: 0.01
+        Radiation: 0.01
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+    protectionRange: 0
 
 - type: startingGear
   id: BeanDRGear
   equipment:
     back: ZiskClothingBackpackStasisBattery
     jumpsuit: ClothingUniformJumpsuitTracker
-    mask: ClothingMaskGasChronoUnremoveable
+    mask: ClothingMaskZISK
     id: ZiskPDA
     belt: ClothingZiskBelt
     shoes: ClothingShoesBootsChronoUnremoveable
     outerClothing: ClothingOuterHardsuitChronolegioneerzisk
     eyes: DroneOpticsHudOmni
-    gloves: ClothingHandsGlovesChronoLegioneer
+    ears: ClothingHeadsetChronolegioneerUnremoveable
+    gloves: ClothingHandsGlovesChronoLegioneerUnremoveable
     pocket1: BaseHandheldStationMapPowerCe
   storage:
     back:
@@ -396,9 +505,9 @@
 
 
 - type: entity
-  id: MobIPCZisk
-  parent: PlayerSiliconHumanoidBase
-  name: Z.I.S.K
+  id: TFB
+  parent: MobShadowkin
+  name: The Future Barony
   components:
   - type: LanguageKnowledge # Einstein Engines - Languages
     speaks:
@@ -417,7 +526,7 @@
     instrumentList:
       "Daw": { 0: 0 }
   - type: ScaleVisuals
-    scale: 0.15, 0.15
+    scale: 1.5, 1.5
   - type: UserInterface
     interfaces:
       enum.InstrumentUiKey.Key:
@@ -525,61 +634,14 @@
     thresholds:
       0: Alive
       200: Dead
-    stateAlertDict:
-      Alive: BorgHealth
-      Dead: BorgDead
   - type: TypingIndicator
-    proto: robot
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 1000
-      behaviors:
-      - !type:GibBehavior { }
-  - type: SiliconDownOnDead
+    proto: alien
   - type: Inventory
-    templateId: ipc
-  - type: GuideHelp
-    guides:
-    - IPC
-  - type: Silicon
-    entityType: enum.SiliconType.Player
-    batteryPowered: true
-    drainPerSecond: 1.5
-    chargeThresholdMid: 0.80
-    chargeThresholdLow: 0.35
-    chargeThresholdCritical: 0.10
-    speedModifierThresholds:
-      4: 1.2
-      3: 1.2
-      2: 1.2
-      1: 1
-      0: 0.50 # Goobstation - Energycrit
-  - type: BatteryDrinker
-    blacklist: # Goobstation - Energycrit
-      tags:
-      - IPCDrinkBlacklist
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 100
-  - type: EncryptionKeyHolder
-    keySlots: 4
-    examineWhileLocked: false
-    keysExtractionMethod: Cutting
-    keysUnlocked: false
+    templateId: human
   - type: MovementIgnoreGravity
   - type: ActiveRadio
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
-  - type: DeadStartupButton
-    sound:
-      path: /Audio/_EinsteinEngines/Effects/Silicon/startup.ogg
-  # Erro de linter
-  #   - type: Wires
-  #     layoutId: IPC
-  - type: EmitBuzzWhileDamaged
   - type: CanHostGuardian
   - type: Repairable #Goob edit
     fuelCost: 5
@@ -598,8 +660,6 @@
     sprintSpeedMultiplier: 1.5
   - type: Tag
     tags:
-    - SiliconMob
-    - SiliconEmotes
     - EmagImmune
     - CanPilot
     - FootstepSound
@@ -609,7 +669,6 @@
     - DoorBumpOpener
     - AnomalyHost
     - PreventAccessLogging
-    - IPCDrinkBlacklist
   - type: Access
     tags:
     - Xenoborg
