@@ -376,7 +376,7 @@
   - type: Unremoveable
 
 - type: entity
-  id: ChronoPortal
+  id: BaronyPortal
   name: Barony portal
   description: Looks futuristic.
   parent: [ BasePortal, BaseShadow ]
