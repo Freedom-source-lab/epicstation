@@ -393,3 +393,13 @@
   parent: BaseAugmentRecipe
   id: AugmentStrengthElectronics
   result: AugmentStrengthElectronics
+
+- type: latheRecipe
+  parent: BaseAugmentRecipe
+  id: AugmentOssmodulaCasing
+  result: AugmentOssmodulaCasing
+
+- type: latheRecipe
+  parent: BaseAugmentRecipe
+  id: AugmentOssmodulaElectronics
+  result: AugmentOssmodulaElectronics

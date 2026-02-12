@@ -65,3 +65,11 @@
   targetNode: augment
   category: construction-category-utilities
   canBuildInImpassable: false
+
+- type: construction
+  id: AugmentOssmodula
+  graph: AugmentOssmodula
+  startNode: start
+  targetNode: augment
+  category: construction-category-utilities
+  canBuildInImpassable: false

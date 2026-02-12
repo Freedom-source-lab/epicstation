@@ -774,7 +774,7 @@
     organ:
     - type: Eyes
 
-# Fluff/Joke Surgeries
+# Fluff/Joke Surgeries #EPICCHANGE ADD THIS LOL
 
 #- type: entity
 #  parent: SurgeryBase
@@ -1032,7 +1032,53 @@
   - type: SurgeryPartCondition
     parts: [ Head ]
 
+#Epicstation Headimplant for ossmodula
 - type: entity
+  parent: SurgeryOpenCavityBase
+  id: SurgeryOpenHeadAugment
+  name: Open Cavity For Head Augments
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision # no ribcage
+  - type: SurgeryPartCondition
+    parts: [ Head ]
+  - type: SurgeryOrganSlotCondition
+    organSlot: headImplant
+
+- type: entity
+  parent: SurgeryInstallAugmentBase
+  id: SurgeryInsertHeadAugment
+  name: Insert Head Augment
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision # no ribcage
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepInsertAugmentHead
+    - SurgeryStepSealOrganWound
+  - type: SurgeryPartCondition
+    parts: [ Head ]
+  - type: SurgeryOrganCondition
+    organ:
+    - type: AugmentHead
+  - type: SurgeryOrganSlotCondition
+    organSlot: headImplant
+
+- type: entity
+  parent: SurgeryRemoveAugmentBase
+  id: SurgeryRemoveHeadAugment
+  name: Remove Head Augment
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision # no ribcage
+  - type: SurgeryPartCondition
+    parts: [ Head ]
+  - type: SurgeryOrganCondition
+    organ:
+    - type: AugmentHead
+
+
+- type: entity #EPICCHANGE FIX
   parent: SurgeryBase
   id: SurgeryMendBrainTissue
   name: Mend brain tissue

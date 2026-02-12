@@ -11,6 +11,19 @@
     slotId: armImplant
   - type: AugmentArm
 
+- type: entity
+  abstract: true
+  parent: BaseAugment
+  id: BaseHeadAugment
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Augments/arm.rsi
+  - type: Item
+    size: Huge
+  - type: Organ
+    slotId: headImplant
+  - type: AugmentHead
+
 # Tools
 
 - type: entity
@@ -113,6 +126,15 @@
   components:
   - type: Tag
     tags: [ AugmentPaperworkToolElectronics ]
+
+- type: entity
+  parent: BaseAugmentElectronics
+  id: AugmentOssmodulaElectronics
+  name: Ossmodula augment electronics
+  description: An electronics board that controls a Ossmodula augment.
+  components:
+  - type: Tag
+    tags: [ AugmentOssmodulaElectronics ]
 
 - type: entity
   parent: BaseAugmentElectronics
@@ -269,6 +291,19 @@
     graph: AugmentStrength
 
 - type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseIncompleteAugmentOssmodula
+  description: Can be implanted into a body to increase growth. This one is incomplete.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Augments/arm.rsi
+  - type: Item
+    size: Huge
+  - type: Construction
+    graph: AugmentOssmodula
+
+- type: entity
   parent: BaseIncompleteAugmentStrength
   id: AugmentStrengthCasing
   name: strength augment casing
@@ -281,9 +316,31 @@
     tags: [ AugmentStrengthCasing ]
 
 - type: entity
+  parent: BaseIncompleteAugmentOssmodula
+  id: AugmentOssmodulaCasing
+  name: Ossmodula augment casing
+  components:
+  - type: Sprite
+    state: base
+  - type: Construction
+    node: casing
+  - type: Tag
+    tags: [ AugmentOssmodulaCasing ]
+
+- type: entity
   parent: BaseIncompleteAugmentStrength
   id: AugmentStrengthCables
   name: strength augment casing with cables
+  components:
+  - type: Sprite
+    state: base_cables
+  - type: Construction
+    node: cables
+
+- type: entity
+  parent: BaseIncompleteAugmentOssmodula
+  id: AugmentOssmodulaCables
+  name: Ossmodula augment casing with cables
   components:
   - type: Sprite
     state: base_cables
@@ -301,6 +358,45 @@
     iconOn: { sprite: Objects/Tools/Toolboxes/toolbox_blue.rsi, state: icon }
   - type: InstantAction
     event: !type:ToggleActionEvent
+
+
+- type: entity
+  parent: BaseAugmentAction
+  id: ActionAugmentToggleOssmodula
+  name: Toggle ossmodula augment
+  description: Increases your melee damage by 25%, consumes 30W while active.
+  components:
+  - type: Action
+    icon: Interface/Default/blocked.png
+    iconOn: { sprite: Objects/Tools/Toolboxes/toolbox_blue.rsi, state: icon }
+  - type: InstantAction
+    event: !type:ToggleActionEvent
+
+- type: entity
+  parent: BaseHeadAugment
+  id: AugmentOssmodula
+  name: ossmodula augment
+  description: Can be implanted into a body to increase growth.
+  components:
+  - type: Sprite
+    state: strength
+  - type: ItemToggle
+    onUse: false
+    onActivate: false
+  - type: AugmentOssmodula
+  - type: AugmentPowerDraw
+    draw: 30
+  - type: AugmentAction
+    action: ActionAugmentToggleOssmodula
+  - type: Construction
+    graph: AugmentOssmodula
+    node: augment
+  - type: AbductorOrgan #trying to make em grow
+  - type: Organ 
+    onAdd:
+    - type: PressureImmunity
+    - type: BreathingImmunity
+
 
 - type: entity
   parent: BaseArmAugment

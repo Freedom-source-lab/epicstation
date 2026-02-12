@@ -790,6 +790,11 @@
   id: SurgeryStepInsertAugmentArm
   name: Add arm augment
 
+- type: entity
+  parent: SurgeryStepInsertOrgan
+  id: SurgeryStepInsertAugmentHead
+  name: Add head augment
+
 # Lobotomy
 - type: entity
   parent: SurgeryStepBase

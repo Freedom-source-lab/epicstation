@@ -130,6 +130,53 @@
   - node: "utility tools panel"
     entity: AugmentToolsPanel
 
+
+- type: constructionGraph
+  id: AugmentOssmodula
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: casing
+      steps:
+      - tag: AugmentOssmodulaCasing
+        name: construction-graph-tag-casing
+        icon:
+          sprite: _Shitmed/Objects/Augments/arm.rsi
+          state: base
+  - node: casing
+    entity: AugmentOssmodulaCasing
+    edges:
+    - to: cables
+      steps:
+      - material: Cable
+        amount: 1
+  - node: cables
+    entity: AugmentOssmodulaCables
+    edges:
+    - to: augment
+      steps:
+      - tag: AugmentOssmodulaElectronics
+        name: construction-graph-tag-ossmodula-augment-electronics
+        icon:
+          sprite: Objects/Misc/module.rsi
+          state: mainboard
+      - material: Plasteel
+        amount: 4
+        doAfter: 3
+      - tool: Welding
+        doAfter: 4
+      - material: Steel
+        amount: 12
+        doAfter: 2
+      - tool: Hammering
+        doAfter: 3
+      - tool: Welding
+        doAfter: 2
+  - node: augment
+    entity: AugmentOssmodula
+
+
 - type: constructionGraph
   id: AugmentStrength
   start: start

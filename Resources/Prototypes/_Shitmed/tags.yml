@@ -43,6 +43,13 @@
 - type: Tag
   id: AugmentStrengthCasing
 
+
+- type: Tag
+  id: AugmentOssmodulaElectronics
+
+- type: Tag
+  id: AugmentOssmodulaCasing
+
 - type: Tag
   id: CantInteract
 

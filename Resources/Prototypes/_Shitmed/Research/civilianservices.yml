@@ -136,6 +136,8 @@
   recipeUnlocks:
   - AugmentStrengthCasing
   - AugmentStrengthElectronics
+  - AugmentOssmodulaCasing
+  - AugmentOssmodulaElectronics
 
 # Tier 3
 
