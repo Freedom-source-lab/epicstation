@@ -77,6 +77,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
     private bool _showGreentext;
 
     private int _goobcoinsServerMultiplier = 1;
+    private int _testcoinsServerMultiplier = 1;
     public override void Initialize()
     {
         base.Initialize();
@@ -87,6 +88,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
 
         _prototypeManager.PrototypesReloaded += CreateCompletions;
         Subs.CVar(_cfg, GoobCVars.GoobcoinServerMultiplier, value => _goobcoinsServerMultiplier = value, true);
+        Subs.CVar(_cfg, GoobCVars.TestcoinServerMultiplier, value => _testcoinsServerMultiplier = value, true);
     }
 
     public override void Shutdown()
@@ -309,6 +311,9 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
 
         foreach (var (key, currency) in currencyStorage)
             _currencyMan.AddCurrency(key, (int)Math.Round( currency * _goobcoinsServerMultiplier));
+
+        foreach (var (testkey, testcurrency) in currencyStorage)
+            _currencyMan.AddCurrency(testkey, (int)Math.Round( testcurrency * _goobcoinsServerMultiplier));
     }
 
     public EntityUid? GetRandomObjective(EntityUid mindId, MindComponent mind, ProtoId<WeightedRandomPrototype> objectiveGroupProto, float maxDifficulty)

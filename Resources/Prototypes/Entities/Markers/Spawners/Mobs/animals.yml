@@ -199,6 +199,22 @@
     prototypes:
     - MobMonkey
 
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnPersonalityCore
+  name: Personality Core Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Animals/mouse.rsi
+      state: icon-2
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - PersonalityCore
+
 - type: entity
   parent: MarkerBase
   id: SpawnMobMouse

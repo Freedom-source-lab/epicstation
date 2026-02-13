@@ -53,6 +53,7 @@
   - Command
   - Succession
   goobcoins: 45
+  testcoins: 1
   weight: 20
   startingGear: BlueshieldOfficerGear
   icon: "JobIconBlueshield"

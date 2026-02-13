@@ -333,6 +333,34 @@ public sealed partial class GoobCVars
 
     #endregion
 
+    #region Testcoins
+
+    public static readonly CVarDef<int> TestcoinsPerPlayer =
+        CVarDef.Create("testservercurrency.per_player", 10, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> TestcoinNonAntagMultiplier =
+        CVarDef.Create("testservercurrency.non_antag_multiplier", 1, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> TestcoinServerMultiplier =
+        CVarDef.Create("testservercurrency.server_multiplier", 1, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> TestcoinMinPlayers =
+        CVarDef.Create("testservercurrency.min_players", 5, CVar.SERVERONLY);
+
+    public static readonly CVarDef<bool> TestcoinUseLowpopMultiplier =
+        CVarDef.Create("testservercurrency.use_lowpop_multiplier", true, CVar.SERVERONLY);
+
+    public static readonly CVarDef<double> TestcoinLowpopMultiplierStrength =
+        CVarDef.Create("testservercurrency.lowpop_multiplier_strength", 1.0, CVar.SERVERONLY);
+
+    public static readonly CVarDef<bool> TestcoinUseShortRoundPenalty =
+        CVarDef.Create("testservercurrency.use_shortround_penalty", true, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> TestcoinShortRoundPenaltyTargetMinutes =
+        CVarDef.Create("testservercurrency.shortround_penalty_target_minutes", 90, CVar.SERVERONLY);
+
+    #endregion
+
     #region Station Events
 
     /// <summary>

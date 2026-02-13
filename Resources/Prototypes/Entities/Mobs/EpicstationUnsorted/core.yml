@@ -2,7 +2,7 @@
 - type: entity
   name: Personality Core
   parent: SimpleMobBase
-  id: personalityCore
+  id: PersonalityCore
   description: Full of personality, maybe a little too much.
   components:
   - type: MultiHandedItem

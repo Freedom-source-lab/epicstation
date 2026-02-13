@@ -257,6 +257,12 @@ namespace Content.Shared.Roles
         /// </summary>
         [DataField]
         public int Goobcoins { get; private set; } = 1;
+
+        /// <summary>
+        ///     Teststation Change: The amount of Testcoins a player will receive when they finish a round as this job.
+        /// </summary>
+        [DataField]
+        public int Testcoins { get; private set; } = 1;
     }
 
     /// <summary>

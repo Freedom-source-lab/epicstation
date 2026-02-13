@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/12/2026 05:36:46
-  entityCount: 12129
+  time: 02/12/2026 05:18:05
+  entityCount: 12126
 maps:
 - 1
 grids:
@@ -34447,7 +34447,7 @@ entities:
       pos: 40.5,-12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -4966.38
+      secondsUntilStateChange: -4924.0947
       state: Closing
   - uid: 5654
     components:
@@ -60609,23 +60609,6 @@ entities:
     - type: Transform
       pos: 17.5,-0.5
       parent: 2
-- proto: SpawnPersonalityCore
-  entities:
-  - uid: 4889
-    components:
-    - type: Transform
-      pos: -4.5,-32.5
-      parent: 2
-  - uid: 4911
-    components:
-    - type: Transform
-      pos: -5.5,-32.5
-      parent: 2
-  - uid: 4940
-    components:
-    - type: Transform
-      pos: -4.5,-31.5
-      parent: 2
 - proto: SpawnPointAtmos
   entities:
   - uid: 9543
@@ -75019,7 +75002,8 @@ entities:
   - uid: 11954
     components:
     - type: Transform
-      pos: -4.7163796,-32.307068
+      rot: -1.5707963267948966 rad
+      pos: -4.5729136,-32.437004
       parent: 2
 - proto: XenobioSlimeBabySpawner
   entities:

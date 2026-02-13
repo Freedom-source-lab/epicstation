@@ -49,6 +49,16 @@ namespace Content.Goobstation.Server.ServerCurrency
         private bool _goobcoinsUseShortRoundPenalty = true;
         private int _goobcoinsShortRoundPenaltyTargetMinutes = 50;
 
+
+        private int _testcoinsPerPlayer = 10;
+        private int _testcoinsNonAntagMultiplier = 1;
+        private int _testcoinsServerMultiplier = 1;
+        private int _testcoinsMinPlayers;
+        private bool _testcoinsUseLowPopMultiplier;
+        private double _testcoinsLowPopMultiplierStrength = 1.0;
+        private bool _testcoinsUseShortRoundPenalty = true;
+        private int _testcoinsShortRoundPenaltyTargetMinutes = 50;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -63,6 +73,14 @@ namespace Content.Goobstation.Server.ServerCurrency
             Subs.CVar(_cfg, GoobCVars.GoobcoinLowpopMultiplierStrength, value => _goobcoinsLowPopMultiplierStrength = value, true);
             Subs.CVar(_cfg, GoobCVars.GoobcoinUseShortRoundPenalty, value => _goobcoinsUseShortRoundPenalty = value, true);
             Subs.CVar(_cfg, GoobCVars.GoobcoinShortRoundPenaltyTargetMinutes, value => _goobcoinsShortRoundPenaltyTargetMinutes = value, true);
+            Subs.CVar(_cfg, GoobCVars.TestcoinsPerPlayer, value => _testcoinsPerPlayer = value, true);
+            Subs.CVar(_cfg, GoobCVars.TestcoinNonAntagMultiplier, value => _testcoinsNonAntagMultiplier = value, true);
+            Subs.CVar(_cfg, GoobCVars.TestcoinServerMultiplier, value => _testcoinsServerMultiplier = value, true);
+            Subs.CVar(_cfg, GoobCVars.TestcoinMinPlayers, value => _testcoinsMinPlayers = value, true);
+            Subs.CVar(_cfg, GoobCVars.TestcoinUseLowpopMultiplier, value => _testcoinsUseLowPopMultiplier = value, true);
+            Subs.CVar(_cfg, GoobCVars.TestcoinLowpopMultiplierStrength, value => _testcoinsLowPopMultiplierStrength = value, true);
+            Subs.CVar(_cfg, GoobCVars.TestcoinUseShortRoundPenalty, value => _testcoinsUseShortRoundPenalty = value, true);
+            Subs.CVar(_cfg, GoobCVars.TestcoinShortRoundPenaltyTargetMinutes, value => _testcoinsShortRoundPenaltyTargetMinutes = value, true);
         }
 
         public override void Shutdown()
@@ -74,6 +92,8 @@ namespace Content.Goobstation.Server.ServerCurrency
         private void OnRoundEndText(RoundEndTextAppendEvent ev)
         {
             if (_players.PlayerCount < _goobcoinsMinPlayers)
+                return;
+            if (_players.PlayerCount < _testcoinsMinPlayers)
                 return;
 
             var lowPopMultiplier = 1.0 - (_players.PlayerCount / (double)_players.MaxPlayers);
@@ -103,23 +123,45 @@ namespace Content.Goobstation.Server.ServerCurrency
                             if (!_jobs.CanBeAntag(session))
                                 money *= _goobcoinsNonAntagMultiplier;
                         }
+                        int testmoney = _testcoinsPerPlayer;
+                        if (session is not null)
+                        {
+                            testmoney += _jobs.GetJobTestcoins(session);
+                            if (!_jobs.CanBeAntag(session))
+                                testmoney *= _testcoinsNonAntagMultiplier;
+                        }
 
                         if(_goobcoinsUseLowPopMultiplier)
-                            money += (int)Math.Round(money * lowPopMultiplier * _goobcoinsLowPopMultiplierStrength);
+                            testmoney += (int)Math.Round(testmoney * lowPopMultiplier * _goobcoinsLowPopMultiplierStrength);
 
                         if (_goobcoinsServerMultiplier != 1)
-                            money *= _goobcoinsServerMultiplier;
+                            testmoney *= _goobcoinsServerMultiplier;
 
                         if (session != null && _linkAccount.GetPatron(session)?.Tier != null)
-                            money *= 2;
+                            testmoney *= 2;
 
                         if (_goobcoinsUseShortRoundPenalty)
                         {
                             var roundMinutesActual = _gameTicker.RoundDuration().TotalMinutes;
-                            money = (int) (money * Math.Min(1, roundMinutesActual / _goobcoinsShortRoundPenaltyTargetMinutes));
+                            testmoney = (int) (testmoney * Math.Min(1, roundMinutesActual / _goobcoinsShortRoundPenaltyTargetMinutes));
                         }
 
-                        _currencyMan.AddCurrency(mind.OriginalOwnerUserId.Value, money);
+                        if(_testcoinsUseLowPopMultiplier)
+                            testmoney += (int)Math.Round(testmoney * lowPopMultiplier * _testcoinsLowPopMultiplierStrength);
+
+                        if (_testcoinsServerMultiplier != 1)
+                            testmoney *= _testcoinsServerMultiplier;
+
+                        if (session != null && _linkAccount.GetPatron(session)?.Tier != null)
+                            testmoney *= 2;
+
+                        if (_testcoinsUseShortRoundPenalty)
+                        {
+                            var roundMinutesActual = _gameTicker.RoundDuration().TotalMinutes;
+                            testmoney = (int) (testmoney * Math.Min(1, roundMinutesActual / _testcoinsShortRoundPenaltyTargetMinutes));
+                        }
+
+                        _currencyMan.AddCurrency(mind.OriginalOwnerUserId.Value, testmoney);
                     }
                 }
             }
