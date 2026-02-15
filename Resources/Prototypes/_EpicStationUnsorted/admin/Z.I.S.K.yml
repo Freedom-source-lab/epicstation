@@ -156,11 +156,11 @@
   description: Stores energy to freeze the flow of time itself, warping the space inside for massive capacity gains.
   components:
   - type: Sprite
-    sprite: _EpicstationUnsorted\Clothing\Back\Backpacks\tfb_back.rsi
+    sprite: _EpicstationUnsorted/Clothing/Back/Backpacks/tfb_back.rsi
     state: icon
   - type: Clothing
     slots: BACK
-    sprite: _EpicstationUnsorted\Clothing\Back\Backpacks\tfb_back.rsi
+    sprite: _EpicstationUnsorted/Clothing/Back/Backpacks/tfb_back.rsi
   - type: BasicEntityAmmoProvider
     proto: BulletStasis
     capacity: 1
@@ -296,10 +296,10 @@
   - type: AutoRecharge
     rechargeDuration: 2
   - type: Sprite
-    sprite: _EpicstationUnsorted\Objects\Tools\rcd_tfb.rsi
+    sprite: _EpicstationUnsorted/Objects/Tools/rcd_tfb.rsi
     state: icon
   - type: Item
-    sprite: _EpicstationUnsorted\Objects\Tools\rcd_tfb.rsi
+    sprite: _EpicstationUnsorted/Objects/Tools/rcd_tfb.rsi
   - type: RCD
 
 - type: entity
@@ -310,9 +310,9 @@
   categories: [HideSpawnMenu]
   components:
   - type: Sprite
-    sprite: _EpicstationUnsorted\Clothing\Mask\tfbmask.rsi
+    sprite: _EpicstationUnsorted/Clothing/Mask/tfbmask.rsi
   - type: Clothing
-    sprite: _EpicstationUnsorted\Clothing\Mask\tfbmask.rsi
+    sprite: _EpicstationUnsorted/Clothing/Mask/tfbmask.rsi
   - type: Unremoveable
   - type: Tag
     tags:
@@ -327,9 +327,9 @@
   categories: [HideSpawnMenu]
   components:
   - type: Sprite
-    sprite: _EpicstationUnsorted\Clothing\OuterClothing\Hardsuits\tfb.rsi
+    sprite: _EpicstationUnsorted/Clothing/OuterClothing/Hardsuits/tfb.rsi
   - type: Clothing
-    sprite: _EpicstationUnsorted\Clothing\OuterClothing\Hardsuits\tfb.rsi
+    sprite: _EpicstationUnsorted/Clothing/OuterClothing/Hardsuits/tfb.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -408,9 +408,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: _EpicstationUnsorted\Clothing\Head\Hardsuits\tfb_Helm.rsi
+    sprite: _EpicstationUnsorted/Clothing/Head/Hardsuits/tfb_Helm.rsi
   - type: Clothing
-    sprite: _EpicstationUnsorted\Clothing\Head\Hardsuits\tfb_Helm.rsi
+    sprite: _EpicstationUnsorted/Clothing/Head/Hardsuits/tfb_Helm.rsi
   - type: PointLight
     color: "#6BA9E6"
     rotation: 30
@@ -470,7 +470,7 @@
       - FreedomImplanter
       - ScramImplanter
       - MindShieldImplanter
-      - RCDChrono
+      - RCDBaronyConstructor
       - ChronoTeleporter
       - HandheldGPSBasic # Mass Scanner Removed by Lavaland
       - Flash
